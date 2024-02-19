@@ -18,7 +18,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.REMOTE_PORT }}
         script: |
-          rm -rf /home/ubuntu/myhtml
+          sudo rm -rf /home/ubuntu/myhtml
           sudo git clone https://github.com/PTCman/myhtml.git
           sudo mv -f myhtml/*.html /var/www/html
 
