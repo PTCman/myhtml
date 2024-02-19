@@ -13,7 +13,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    steps:
+    
     - name: Run playbook
       uses: dawidd6/action-ansible-playbook@v2
       with:
