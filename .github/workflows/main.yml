@@ -10,17 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: get code from github
-      uses: appleboy/ssh-action@v1.0.3
+    - name: Run playbook
+      uses: dawidd6/action-ansible-playbook@v2
       with:
-        host: ${{ secrets.REMOTE_HOST }}
-        username: ${{ secrets.REMOTE_USER }}
+        # Required, playbook filepath
+        playbook: deploy.yml
+        # Optional, directory where playbooks live
+        directory: ./
+        # Optional, SSH private key
         key: ${{ secrets.SSH_KEY }}
-        port: ${{ secrets.REMOTE_PORT }}
-        script: |
-          sudo rm -rf /home/ubuntu/myhtml
-          sudo git clone https://github.com/PTCman/myhtml.git
-          sudo mv -f myhtml/*.html /var/www/html
+        # Optional, literal inventory file contents
+        inventory: |
+          [all]
+          52.79.237.181 ansible_sshj_user=ubuntu
+
+          [group1]
+          52.79.237.181 ansible_sshj_user=ubuntu
+
 
       
   
