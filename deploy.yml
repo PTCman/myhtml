@@ -1,9 +1,9 @@
-- hosts: ["52.79.237.181"]
-  tasks:
-  - name: "install nginx"
-    shell: |
-      sudo apt update
-      sudo apt install -y nginx
-    become: yes
+# - hosts: ["52.79.237.181"]
+#   tasks:
+#   - name: "install nginx"
+#     shell: |
+#       sudo apt update
+#       sudo apt install -y nginx
+#     become: yes
   
   
